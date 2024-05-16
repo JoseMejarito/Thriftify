@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Register</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap">
+    <link rel="stylesheet" href="assets/css/Navbar-Right-Links-Dark.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Registration-Form.css">
+    <link rel="stylesheet" href="assets/css/Simple-Slider.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        body {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        form {
+            border-top-color: #1e1e1e;
+        }
+        div {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            border-bottom-color: #1e1e1e;
+        }
+        button {
+            background: #1e1e1e;
+        }
+        a {
+            font-family: 'Bebas Neue', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md bg-dark py-3">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="HomePage.php"><span class="fs-1">Thriftify</span></a></div>
+    </nav>
+    <div class="row register-form">
+        <div class="col-md-8 offset-md-2">
+            <form class="custom-form" action="register.php" method="POST">
+                <h1>Register Account</h1>
+                <div class="row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="name-input-field">Name </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="text" name="Name"></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="email-input-field">Email </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="email" name="Email"></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="pawssword-input-field">Password </label></div>
+                    <div class="col-sm-6 input-column"><input class="form-control" type="password" name="Password"></div>
+                </div>
+                <div class="row form-group">
+                    <div class="col-sm-4 label-column"><label class="col-form-label" for="repeat-pawssword-input-field">Repeat Password </label></div>
+                    <div class="col-sm-6 input-column">
+                        <input class="form-control" type="password" name="RepeatPassword">
+                        <p class="error-text" style="color: red; display: none;">The password does not match.</p>
+                    </div>
+                </div>
+                <div class="form-check"><input class="form-check-input" type="checkbox" id="formCheck-1" required><label class="form-check-label" for="formCheck-1">I've read and accept the <a href="TermsOfUsePage.php">terms and conditions</a></label></div>
+                <div><button class="btn submit-button" style="background: #1e1e1e;" type="submit">Sign Up</button></div>
+                <a href="login.php">Already Have An Account?</a>
+            </form>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/6.4.8/swiper-bundle.min.js"></script>
+    <script src="assets/js/Simple-Slider.js"></script>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+            const password = form.querySelector('input[name="Password"]').value;
+            const repeatPassword = form.querySelector('input[name="RepeatPassword"]').value;
+            const errorText = form.querySelector('.error-text');
+
+            if (password !== repeatPassword) {
+                errorText.style.display = 'block';
+                event.preventDefault(); // Prevent form submission
+            } else {
+                errorText.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>
